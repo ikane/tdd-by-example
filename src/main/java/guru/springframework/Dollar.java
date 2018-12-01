@@ -2,7 +2,7 @@ package guru.springframework;
 
 public class Dollar {
 
-    public int amount;
+    int amount;
 
     public Dollar() {
     }
@@ -11,8 +11,9 @@ public class Dollar {
         this.amount = amount;
     }
 
-    public void times(int t) {
+    public void times(int multiplier) {
 
-        this.amount *= t;
+        this.amount *= multiplier;
     }
+
 }
