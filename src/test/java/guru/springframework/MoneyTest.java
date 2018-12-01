@@ -31,4 +31,9 @@ public class MoneyTest {
         Assertions.assertNotEquals(Money.franc(5), Money.franc(8));
     }
 
+    @Test
+    void testCurrency() {
+        Assertions.assertEquals("USD", Money.dollar(5).currency());
+        Assertions.assertEquals("CHF", Money.franc(5).currency());
+    }
 }
