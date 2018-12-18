@@ -58,6 +58,8 @@ public class MoneyTest {
     @Test
     void testReduceMoney() {
         Bank bank = new Bank();
+        bank.addRate("USD", "USD", 1);
+        bank.addRate("CHF", "CHF", 1);
         Money result = bank.reduce(Money.dollar(1), "USD");
         Assertions.assertEquals(Money.dollar(1), result);
     }
@@ -72,7 +74,10 @@ public class MoneyTest {
 
     @Test
     void testIdentityRate() {
-        Assertions.assertEquals(1, new Bank().rate("USD", "USD"));
-        Assertions.assertEquals(1, new Bank().rate("CHF", "CHF"));
+        Bank bank = new Bank();
+        bank.addRate("USD", "USD", 1);
+        bank.addRate("CHF", "CHF", 1);
+        Assertions.assertEquals(1, bank.rate("USD", "USD"));
+        Assertions.assertEquals(1, bank.rate("CHF", "CHF"));
     }
 }
