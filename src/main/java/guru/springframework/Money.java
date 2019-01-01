@@ -30,13 +30,12 @@ public class Money implements Expression {
                 && this.currency==money.currency;
     }
 
-    public Money times(int multiplier) {
+    public Expression times(int multiplier) {
         return new Money(amount * multiplier,  currency);
     }
 
-    Expression plus (Money addend) {
+    public Expression plus (Expression addend) {
         Sum result = new Sum(this, addend);
-        //return new Money(amount + addend.amount, this.currency);
         return result;
     }
 
