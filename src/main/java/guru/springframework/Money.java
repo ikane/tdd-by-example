@@ -30,10 +30,12 @@ public class Money implements Expression {
                 && this.currency==money.currency;
     }
 
+    @Override
     public Expression times(int multiplier) {
         return new Money(amount * multiplier,  currency);
     }
 
+    @Override
     public Expression plus (Expression addend) {
         Sum result = new Sum(this, addend);
         return result;
